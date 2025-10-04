@@ -11,6 +11,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 setTimeout(() => {
                     entry.target.classList.add('is-visible');
+
+                    // --- THIS IS THE FIX ---
+                    // After the animation finishes, we remove the class that causes the conflict.
+                    // The 'transitionend' event fires when a CSS transition has completed.
+                    entry.target.addEventListener('transitionend', () => {
+                        // We remove both classes to be safe.
+                        entry.target.classList.remove('fade-in', 'animate-on-scroll');
+                    }, { once: true }); // The { once: true } option ensures this code runs only one time.
+
                 }, delay);
 
                 // Miután az animáció lefutott, már nem figyeljük az elemet

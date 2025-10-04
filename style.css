@@ -97,8 +97,11 @@ a:hover { color: var(--primary-dark-green); }
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 0.9rem;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     border: 2px solid transparent;
+    will-change: transform, box-shadow;
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .btn-primary {
@@ -108,8 +111,8 @@ a:hover { color: var(--primary-dark-green); }
 
 .btn-primary:hover {
     background-color: #a18a5e;
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
 /* --- HEADER --- */
@@ -121,6 +124,7 @@ a:hover { color: var(--primary-dark-green); }
     z-index: 1000;
     padding: 20px 0;
     transition: background-color 0.3s ease, padding 0.3s ease;
+    background-color: transparent;
 }
 
 .main-header.scrolled {
@@ -141,6 +145,11 @@ a:hover { color: var(--primary-dark-green); }
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: 1px;
+    color: var(--white);
+    transition: color 0.3s ease;
+}
+
+.main-header.scrolled .logo {
     color: var(--primary-dark-green);
 }
 
@@ -152,10 +161,15 @@ a:hover { color: var(--primary-dark-green); }
 }
 
 .main-nav a {
-    color: var(--primary-charcoal);
+    color: var(--white);
     font-weight: 500;
     font-size: 0.9rem;
     position: relative;
+    transition: color 0.3s ease;
+}
+
+.main-header.scrolled .main-nav a {
+    color: var(--primary-charcoal);
 }
 
 .main-nav a:not(.btn)::after {
@@ -176,7 +190,7 @@ a:hover { color: var(--primary-dark-green); }
 /* --- HERO SZEKCIÓ --- */
 .hero-section {
     height: 100vh;
-    background: url('https://placehold.co/1920x1080/2C3D33/F4F3EF?text=Domus+Verde+Prémium+Kert') no-repeat center center/cover;
+    background: url('image/hero.jpg') no-repeat center center/cover;
     position: relative;
     display: flex;
     align-items: center;
@@ -190,7 +204,7 @@ a:hover { color: var(--primary-dark-green); }
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.6);
 }
 .hero-content {
     position: relative;
@@ -322,7 +336,7 @@ a:hover { color: var(--primary-dark-green); }
 .main-footer {
     background-color: var(--primary-dark-green);
     color: var(--white);
-    padding: 60px 0;
+    padding: 20px 0;
 }
 .main-footer .logo {
     color: var(--white);
