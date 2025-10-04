@@ -74,7 +74,6 @@ a {
     text-decoration: none;
     transition: color 0.3s ease;
 }
-a:hover { color: var(--primary-dark-green); }
 
 .section-title span {
     display: block;
@@ -330,6 +329,18 @@ a:hover { color: var(--primary-dark-green); }
 .contact-form textarea {
     min-height: 150px;
     resize: vertical;
+}
+
+.form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem; /* Adds some space above the captcha/button row */
+}
+
+/* Optional: Ensure button has some space on the left */
+.form-footer .btn {
+    margin-left: 20px;
 }
 
 /* --- FOOTER --- */

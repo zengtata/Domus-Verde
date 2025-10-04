@@ -13,6 +13,7 @@
 
   <!-- Saját stíluslap -->
   <link rel="stylesheet" href="style.css">
+  <script src="https://web3forms.com/client/script.js" async defer></script>
 </head>
 <body>
 
@@ -25,7 +26,7 @@
         <li><a href="#services">Szolgáltatások</a></li>
         <li><a href="#projects">Projektjeink</a></li>
         <li><a href="#process">Folyamat</a></li>
-        <li><button href="#contact" class="btn btn-primary"><a href="#contact">Konzultáció</a></button></li>
+        <li><a href="#contact">Kapcsolat</a></li>
       </ul>
     </nav>
   </div>
@@ -135,7 +136,15 @@
         <h2>Vegye fel velünk a kapcsolatot</h2>
         <p>Készen áll, hogy megvalósítsuk álmai kertjét? Kérjen személyre szabott konzultációt!</p>
       </div>
-      <form class="contact-form animate-on-scroll">
+
+      <form action="https://api.web3forms.com/submit" method="POST" class="contact-form animate-on-scroll">
+
+        <input type="hidden" name="access_key" value="bea8eebb-7058-46c9-9aa8-fe466ea9d88e">
+
+        <input type="hidden" name="from_name" value="Domus Verde Weboldal">
+
+        <input type="hidden" name="subject" value="Új Ügyfél Megkeresés">
+
         <div class="form-group">
           <input type="text" name="name" placeholder="Név" required>
         </div>
@@ -146,12 +155,17 @@
           <input type="tel" name="phone" placeholder="Telefonszám" required>
         </div>
         <div class="form-group">
-          <input type="text" name="address" placeholder="Cím (város, utca)" required>
+          <input type="text" name="address" placeholder="Cím" required>
         </div>
         <div class="form-group full-width">
           <textarea name="message" placeholder="A projekt rövid leírása..." required></textarea>
         </div>
-        <div class="form-group full-width text-center">
+
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+        <div class="form-group full-width form-footer">
+          <div class="h-captcha" data-captcha="true"></div>
+
           <button type="submit" class="btn btn-primary">Küldés</button>
         </div>
       </form>
